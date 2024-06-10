@@ -1,1 +1,1 @@
-# MediaModaMediana
+# MediaModaMediana: The project was designed for users who do not have time to make estimates, what the project seeks is to provide. Medium , medium fashion In a few simple steps. Ask the user to order them from a list of numbers and display the results of these three operations
