@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesMEMEMO.css">
+    <title>Document</title>
+</head>
+<script>
+    //inicio de las funciones
+    //VALIDACION
+    function  verificacionDeNumero(numero)
+    {
+
+        while(isNaN(numero) || !numero)
+        {
+            numero = prompt("ingresa un numero valido");
+            numero = parseInt(numero);
+        }
+
+        return numero;
+    }
+    //MEDIA
+    function promedio()
+    {
+        var suma = 0, i=0;
+
+            for(i = 0; i < this.length; i++)
+            {
+               suma += parseInt(this[i]); 
+            } 
+
+            suma /= i;
+
+        return suma;
+    }
+    //MEDIANA
+    function mediana()
+    {
+
+        longitud = (this.length / 2);
+        var num = 0;
+
+        if(this.length %2 == 1)
+        {
+            num = this[longitud - .5];
+        }else
+        {
+            num = parseInt(this[longitud]);
+            num += parseInt(this[longitud - 1]);
+
+            num /= 2;
+        }
+        return num;
+
+    }
+    //MODA
+    function moda(array)
+    { 
+        var modeMap={};
+        maxCount=1, modes = [array[0]];
+        if(array.length==1){
+            modes=[array[0]];
+        }
+        else{
+            array.forEach(function (e){
+                if(modeMap[e]== null)
+                    modeMap[e]=1;
+                else
+                    modeMap[e]++;
+            
+                if(modeMap[e]> maxCount){
+                    modes=[e];
+                    maxCount=modeMap[e];
+                }
+                else if(modeMap[e]==maxCount){
+                    modes.push(e);
+                    maxCount=modeMap[e];
+                }
+            });
+        }
+        return modes;
+    }
+
+    //fin de las funciones
+    //creacion de metodos
+
+    Array.prototype.promedios = promedio;
+    Array.prototype.mediana   = mediana;
+
+    //inicio del programa principal
+    var ingresados = [];
+    var numero = 0, i = 0;
+
+    do
+    {
+        
+        numero = prompt("ingrese un numero");
+        
+        ingresados[i] = verificacionDeNumero(numero);
+
+        i++;
+    }while(confirm("¿Desea ingresar otro numero?"));
+
+    ingresados.sort(function(a,b){return a-b;});
+
+    media = ingresados.promedios();
+    medianas = ingresados.mediana();
+    moda = moda(ingresados);
+
+    document.write("<p>La media de la matriz dada es: " + media + "<br><br>" + "La mediana de la matriz dada es: " + medianas + "<br><br>La moda de la matriz dada es: " + moda+"</p>");
+
+    
+
+</script>
+<body>
+    <h1>MEDIA ~ MEDIANA ~ MODA</h3>
+    <h3>~Programa por: Luis Fernando y Mari ~</h5>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
